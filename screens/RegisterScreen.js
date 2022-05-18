@@ -53,7 +53,7 @@ const RegisterScreen = (props) => {
       alert('Please fill Password');
       return;
     }
-    //Show Loader
+    
     setLoading(true);
     var dataToSend = {
       name: userName,
@@ -70,18 +70,16 @@ const RegisterScreen = (props) => {
     }
     formBody = formBody.join('&');
  
-    fetch('http://localhost:3000/api/user/register', {
+    fetch('http://localhost:19006/api/user/register', {
       method: 'POST',
       body: formBody,
       headers: {
-        //Header Defination
         'Content-Type':
         'application/x-www-form-urlencoded;charset=UTF-8',
       },
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        //Hide Loader
         setLoading(false);
         console.log(responseJson);
         // If server response message same as Data Matched
@@ -109,7 +107,7 @@ const RegisterScreen = (props) => {
           justifyContent: 'center',
         }}>
         <Image
-          source={require('../Image/success.png')}
+          source={require('../image/success.png')}
           style={{
             height: 150,
             resizeMode: 'contain',
